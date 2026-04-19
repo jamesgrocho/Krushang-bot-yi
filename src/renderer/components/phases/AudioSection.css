@@ -1,0 +1,817 @@
+/* ── Mood Tiles ──────────────────────────────────────────── */
+.mood-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.mood-tile {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 12px;
+  background: var(--bright-bg-secondary);
+  border: 1px solid var(--bright-border-light);
+  border-radius: 20px;
+  cursor: pointer;
+  font-family: inherit;
+  transition: all 0.15s;
+  color: var(--bright-text-primary);
+  white-space: nowrap;
+}
+
+.mood-tile:hover {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: var(--bright-accent-primary);
+}
+
+.mood-tile.active {
+  background: rgba(59, 130, 246, 0.12);
+  border-color: var(--bright-accent-primary);
+  color: var(--bright-accent-primary);
+}
+
+.mood-emoji {
+  font-size: 14px;
+  line-height: 1;
+}
+
+.mood-name {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.mood-count {
+  font-size: 11px;
+  color: var(--bright-text-tertiary);
+}
+
+.mood-empty {
+  padding: 20px;
+  text-align: center;
+  color: var(--bright-text-tertiary);
+  font-size: 13px;
+  font-style: italic;
+}
+
+/* ── Song trigger disabled state ────────────────────────── */
+.song-trigger-disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+
+/* ── Audio player empty state ────────────────────────────── */
+.audio-player-empty,
+.waveform-body .play-btn:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+
+/* Empty waveform hint text */
+.seeker-empty-hint {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  color: rgba(80, 130, 155, 0.45);
+  letter-spacing: 0.06em;
+  pointer-events: none;
+  font-style: italic;
+}
+
+/* ── Cascade Warning ─────────────────────────────────────── */
+.cascade-warning {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 12px 16px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 6px;
+  font-size: 13px;
+  color: var(--bright-accent-primary);
+}
+
+.cascade-dismiss {
+  padding: 4px 10px;
+  background: transparent;
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  color: var(--bright-accent-primary);
+  white-space: nowrap;
+}
+
+.cascade-dismiss:hover {
+  background: rgba(59, 130, 246, 0.1);
+}
+
+/* ── Dropdown ────────────────────────────────────────────── */
+.song-dropdown-wrapper {
+}
+
+.song-dropdown-trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  background: var(--bright-bg-secondary);
+  gap: 8px;
+  color: var(--bright-text-primary);
+}
+
+.song-trigger-name {
+  font-weight: 500;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-trigger-meta {
+  font-size: 12px;
+  color: var(--bright-accent-primary);
+  white-space: nowrap;
+}
+
+.song-marker-warning {
+  font-size: 11px;
+  font-weight: 600;
+  color: #f59e0b;
+  background: rgba(245, 158, 11, 0.12);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  border-radius: 5px;
+  padding: 1px 7px;
+  white-space: nowrap;
+  letter-spacing: 0.01em;
+}
+
+.song-trigger-placeholder {
+  color: var(--bright-text-tertiary);
+  flex: 1;
+}
+
+.song-dropdown-caret {
+  font-size: 10px;
+  color: var(--bright-text-tertiary);
+  flex-shrink: 0;
+}
+
+.song-dropdown-menu {
+  margin-top: 4px;
+  background: var(--bright-bg-primary);
+  border: 1px solid var(--bright-border-light);
+  border-radius: 8px;
+  box-shadow: var(--bright-shadow-deep);
+  overflow: hidden;
+}
+
+.song-dropdown-search-wrap {
+  padding: 8px;
+  border-bottom: 1px solid var(--bright-border-subtle);
+}
+
+.song-dropdown-search {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--bright-border-light);
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: inherit;
+  background: var(--bright-bg-input);
+  color: var(--bright-text-primary);
+}
+
+.song-dropdown-search:focus {
+  outline: none;
+  border-color: var(--bright-accent-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+.song-dropdown-list {
+  max-height: 260px;
+  overflow-y: auto;
+}
+
+.song-dropdown-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 10px 14px;
+  background: transparent;
+  border: none;
+  text-align: left;
+  cursor: pointer;
+  font-family: inherit;
+  gap: 12px;
+  border-bottom: 1px solid var(--bright-border-subtle);
+  color: var(--bright-text-primary);
+}
+
+.song-dropdown-item:last-child {
+  border-bottom: none;
+}
+
+.song-dropdown-item:hover {
+  background: rgba(59, 130, 246, 0.08);
+}
+
+.song-dropdown-item.selected {
+  background: rgba(59, 130, 246, 0.12);
+}
+
+.song-item-name {
+  font-size: 13px;
+  font-weight: 500;
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.song-item-meta {
+  font-size: 11px;
+  color: var(--bright-accent-primary);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.song-dropdown-empty {
+  padding: 20px;
+  text-align: center;
+  font-size: 13px;
+  color: var(--bright-text-tertiary);
+}
+
+/* ── Section divider ─────────────────────────────────────── */
+.audio-section-divider {
+  border: none;
+  border-top: 1px solid var(--bright-border-subtle);
+  margin: 4px 0 14px;
+}
+
+/* ── Marker Info ─────────────────────────────────────────── */
+/* ── Marker toolbar (info + zoom + add toggle) ──────────────── */
+/* ── Waveform block: groups controls + seeker + play bar ──── */
+.waveform-block {
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.marker-toolbar {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 0;
+}
+
+.marker-info-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.waveform-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  background: linear-gradient(90deg, #3b82f6 0%, #7c3aed 100%);
+  border-bottom: none;
+  position: relative;
+  z-index: 2;
+}
+
+/* ── Waveform control buttons ───────────────────────────────── */
+.waveform-ctrl-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: #ffffff;
+  font-size: 12px;
+  padding: 4px 11px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.13s, color 0.13s, border-color 0.13s;
+  white-space: nowrap;
+}
+.waveform-ctrl-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.55);
+}
+.waveform-ctrl-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+/* ── Zoom controls group ─────────────────────────────────────── */
+.zoom-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: 6px;
+  border-left: 1px solid rgba(255, 255, 255, 0.3);
+  padding-left: 10px;
+}
+.zoom-label {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  min-width: 32px;
+  text-align: center;
+}
+.zoom-fit-btn {
+  margin-left: 4px;
+}
+
+/* ── Zoom pan hint ───────────────────────────────────────────── */
+.zoom-hint {
+  font-size: 11px;
+  color: var(--bright-text-tertiary);
+  text-align: center;
+  margin-top: -4px;
+  margin-bottom: 4px;
+}
+
+/* ── Marker info — below the waveform ───────────────────────── */
+.marker-info-below {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-top: 6px;
+}
+
+.marker-detail-below {
+  font-size: 11px;
+  color: var(--bright-text-tertiary);
+}
+
+/* ── Legacy marker-info (kept for any remaining references) ──── */
+.marker-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.marker-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  background: var(--bright-accent-primary);
+  color: #ffffff;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.marker-detail {
+  font-size: 13px;
+  color: var(--bright-text-tertiary);
+}
+
+/* ── Waveform body: play btn left + seeker right ─────────── */
+.waveform-body {
+  display: flex;
+  align-items: stretch;
+  background: var(--bright-bg-secondary);
+  gap: 8px;
+}
+
+/* Play button sits flush left inside the waveform body, full height */
+.waveform-body .play-btn {
+  flex-shrink: 0;
+  width: 52px;
+  height: auto;
+  border-radius: 0;
+  border-right: 1px solid var(--bright-border-light);
+  box-shadow: none;
+  align-self: stretch;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.waveform-body .play-btn:hover {
+  box-shadow: none;
+}
+
+/* ── Audio Player (legacy — hidden now) ──────────────────── */
+.audio-player {
+  display: none;
+}
+
+.play-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: none;
+  background: var(--bright-accent-primary);
+  color: #ffffff;
+  font-size: 16px;
+  cursor: pointer;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s, transform 0.1s, box-shadow 0.2s;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.play-btn:hover {
+  background: linear-gradient(135deg, var(--bright-accent-primary) 0%, var(--bright-accent-secondary) 100%);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.play-btn:active {
+  transform: scale(0.95);
+}
+
+.play-btn.playing {
+  background: var(--bright-accent-success);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.2);
+}
+
+.play-btn.playing:hover {
+  background: var(--bright-accent-success);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* ── Waveform song title ────────────────────────────────── */
+.waveform-song-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--bright-text-primary);
+  margin-bottom: 8px;
+  letter-spacing: 0.01em;
+}
+
+/* ── Seeker ─────────────────────────────────────────────── */
+.seeker-wrap {
+  flex: 1;
+  cursor: pointer;
+  position: relative;
+  height: 162px; /* 140px waveform + 22px ruler */
+  background: var(--bright-bg-secondary);
+  padding: 10px 0 0 0;
+  min-width: 0;
+}
+
+/* ── Draggable marker number badges ── */
+.marker-num-badge {
+  position: absolute;
+  top: 4px;
+  transform: translateX(-50%);
+  font-size: 13px;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--bright-accent-primary);
+  padding: 3px 7px;
+  border-radius: 5px;
+  cursor: grab;
+  pointer-events: auto;
+  z-index: 9;
+  user-select: none;
+  white-space: nowrap;
+  line-height: 1.2;
+  letter-spacing: 0.02em;
+  transition: background 0.12s, box-shadow 0.12s;
+  box-shadow: 0 2px 6px rgba(59, 130, 246, 0.2);
+}
+.marker-num-badge:hover {
+  background: linear-gradient(135deg, var(--bright-accent-primary) 0%, var(--bright-accent-secondary) 100%);
+  box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+.marker-num-badge.dragging {
+  cursor: grabbing;
+  background: var(--bright-accent-secondary);
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.4);
+}
+.marker-num-badge--fadeout {
+  background: var(--bright-accent-warning);
+}
+.marker-num-badge--fadeout:hover {
+  background: rgba(245, 158, 11, 0.95);
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+}
+.marker-num-badge--fadeout.dragging {
+  background: rgba(245, 158, 11, 0.95);
+  box-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.seeker-waveform {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: calc(100% - 22px); /* leave room for timecode ruler */
+  opacity: 1;
+  border-radius: 4px 4px 0 0;
+}
+
+.seeker-track {
+  position: absolute;
+  top: calc(50% - 11px); /* center in waveform area above the 22px ruler */
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: rgba(59, 130, 246, 0.12);
+  border-radius: 3px;
+  overflow: visible;
+  transform: translateY(-50%);
+}
+
+.seeker-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: var(--bright-accent-primary);
+  border-radius: 3px;
+  pointer-events: none;
+  /* No CSS transition — RAF drives this now */
+}
+
+.seeker-playhead {
+  position: absolute;
+  top: 0;
+  height: calc(100% - 22px); /* stop at ruler */
+  width: 2px;
+  background: var(--bright-accent-success);
+  transform: translateX(-50%);
+  pointer-events: none;
+  z-index: 8;
+  box-shadow: 0 0 6px rgba(16, 185, 129, 0.4);
+  /* No CSS transition — RAF drives this at 60 fps */
+}
+
+.seeker-marker {
+  position: absolute;
+  top: -60px;
+  width: 2px;
+  height: 80px;
+  background: var(--bright-text-secondary);
+  border-radius: 1px;
+  transform: translateX(-50%);
+  pointer-events: auto;
+  cursor: grab;
+  transition: none;
+  z-index: 5;
+  box-shadow: 0 0 4px rgba(59, 130, 246, 0.2);
+}
+
+.seeker-marker.dragging {
+  cursor: grabbing;
+  z-index: 10;
+  background: var(--bright-accent-primary);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.4);
+}
+
+.seeker-marker:hover::after {
+  content: attr(title);
+  position: absolute;
+  bottom: 22px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bright-bg-secondary);
+  color: var(--bright-text-primary);
+  font-size: 11px;
+  padding: 3px 7px;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: var(--bright-shadow-light);
+  border: 1px solid var(--bright-border-light);
+}
+
+/* ── Clear All button ────────────────────────────────────── */
+.clear-all-btn {
+  color: #fca5a5;
+  border-color: rgba(252, 165, 165, 0.5);
+}
+.clear-all-btn:hover:not(:disabled) {
+  background: rgba(239, 68, 68, 0.3);
+  color: #ffffff;
+  border-color: rgba(252, 165, 165, 0.7);
+}
+
+/* ── Multi-select: selected badge highlight ──────────────── */
+.marker-num-badge.selected {
+  background: #fbbf24;
+  color: #1a1a1a;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+}
+.seeker-marker.selected {
+  background: #fbbf24;
+  box-shadow: 0 0 8px rgba(251, 191, 36, 0.4);
+}
+.seeker-fade-badge.selected {
+  outline: 2px solid #fbbf24;
+  box-shadow: 0 0 10px rgba(251, 191, 36, 0.4);
+}
+
+/* ── Fade marker toolbar buttons ─────────────────────────── */
+.fade-in-btn {
+  color: #6ee7b7;
+  border-color: rgba(110, 231, 183, 0.5);
+}
+.fade-in-btn:hover:not(:disabled) {
+  background: rgba(16, 185, 129, 0.3);
+  color: #ffffff;
+  border-color: rgba(110, 231, 183, 0.7);
+}
+.fade-out-btn {
+  color: #fcd34d;
+  border-color: rgba(252, 211, 77, 0.5);
+}
+.fade-out-btn:hover:not(:disabled) {
+  background: rgba(245, 158, 11, 0.3);
+  color: #ffffff;
+  border-color: rgba(252, 211, 77, 0.7);
+}
+
+/* ── Fade marker vertical line ───────────────────────────── */
+.seeker-fade-line {
+  position: absolute;
+  top: 0;
+  height: calc(100% - 22px); /* stop above the timecode ruler */
+  width: 2px;
+  transform: translateX(-50%);
+  border-radius: 1px;
+  pointer-events: auto;
+  z-index: 6;
+  transition: none;
+}
+.seeker-fade-line--in {
+  background: var(--bright-accent-success);
+  box-shadow: 0 0 5px rgba(16, 185, 129, 0.3);
+}
+.seeker-fade-line--out {
+  background: var(--bright-accent-warning);
+  box-shadow: 0 0 5px rgba(245, 158, 11, 0.3);
+}
+.seeker-fade-line:not(.anchored) {
+  cursor: grab;
+}
+.seeker-fade-line.dragging {
+  cursor: grabbing;
+  z-index: 12;
+  width: 3px;
+}
+
+/* ── Fade duration ramp (full waveform height) ── */
+.seeker-fade-ramp {
+  position: absolute;
+  top: 0;        /* start at top of waveform */
+  bottom: 22px;  /* stop above the timecode ruler */
+  pointer-events: none;
+  z-index: 4;
+}
+/* Fade-OUT: solid at marker (left), fading right */
+.seeker-fade-ramp--out {
+  background: linear-gradient(to right, rgba(245, 158, 11, 0.82), rgba(245, 158, 11, 0.12));
+}
+/* Fade-IN: faint at start (left), solid at marker (right) */
+.seeker-fade-ramp--in {
+  background: linear-gradient(to right, rgba(16, 185, 129, 0.12), rgba(16, 185, 129, 0.82));
+}
+
+/* ── Fade ramp resize handle dot ─────────────────────────── */
+.seeker-fade-resize-dot {
+  position: absolute;
+  bottom: 27px; /* 22px ruler + 5px gap */
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  cursor: ew-resize;
+  pointer-events: auto;
+  z-index: 11;
+  border: 2px solid var(--bright-text-primary);
+  box-shadow: 0 0 4px rgba(59, 130, 246, 0.2);
+  transition: transform 0.1s, box-shadow 0.1s;
+}
+.seeker-fade-resize-dot:hover {
+  transform: translateX(-50%) scale(1.3);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.3);
+}
+.seeker-fade-resize-dot--out {
+  background: var(--bright-accent-warning);
+}
+.seeker-fade-resize-dot--in {
+  background: var(--bright-accent-success);
+}
+
+/* ── Fade marker badge ───────────────────────────────────── */
+.seeker-fade-badge {
+  position: absolute;
+  top: calc(50% - 11px); /* center vertically in the waveform area (above 22px ruler) */
+  transform: translateX(-50%) translateY(-50%);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  padding: 3px 6px;
+  border-radius: 5px;
+  font-size: 11px;
+  font-weight: 600;
+  pointer-events: auto;
+  user-select: none;
+  z-index: 9;
+  white-space: nowrap;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background 0.12s, box-shadow 0.12s;
+}
+.seeker-fade-badge--in {
+  background: var(--bright-accent-success);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(16, 185, 129, 0.2);
+}
+.seeker-fade-badge--in:hover {
+  background: var(--bright-accent-success);
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.3);
+}
+.seeker-fade-badge--out {
+  background: var(--bright-accent-warning);
+  color: #ffffff;
+  box-shadow: 0 2px 6px rgba(245, 158, 11, 0.2);
+}
+.seeker-fade-badge--out:hover {
+  background: var(--bright-accent-warning);
+  box-shadow: 0 4px 10px rgba(245, 158, 11, 0.3);
+}
+.seeker-fade-badge:not(.anchored) {
+  cursor: grab;
+}
+.seeker-fade-badge.dragging {
+  cursor: grabbing;
+}
+
+.fade-badge-icon {
+  flex-shrink: 0;
+  display: block;
+}
+.fade-badge-dur {
+  font-size: 10px;
+  font-weight: 400;
+  opacity: 0.88;
+}
+.fade-dur-input {
+  width: 36px;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.7);
+  color: #ffffff;
+  font-size: 12px;
+  font-family: inherit;
+  text-align: center;
+  outline: none;
+  padding: 0;
+}
+
+.seeker-time {
+  font-size: 20px;
+  color: #ffffff;
+  white-space: nowrap;
+  flex-shrink: 0;
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+}
+
+/* ── Timecode ruler ──────────────────────────────────────── */
+.waveform-ruler {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 22px;
+  display: block;
+  pointer-events: none;
+  border-radius: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+}
+
+/* ── Marquee selection box ───────────────────────────────── */
+.marquee-rect {
+  position: absolute;
+  border: 1.5px solid var(--bright-accent-primary);
+  background: rgba(59, 130, 246, 0.1);
+  border-radius: 3px;
+  pointer-events: none;
+  z-index: 30;
+}

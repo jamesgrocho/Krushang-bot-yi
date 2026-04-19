@@ -1,0 +1,264 @@
+/* ── Readiness checklist ──────────────────────────────────── */
+.cp-checklist {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 20px;
+}
+
+.cp-check-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  border-radius: 7px;
+  border: 1px solid transparent;
+}
+.cp-check-row--ok {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: rgba(59, 130, 246, 0.25);
+}
+.cp-check-row--missing {
+  background: rgba(100, 120, 150, 0.08);
+  border-color: var(--bright-border-light);
+}
+
+.cp-check-icon {
+  font-size: 13px;
+  font-weight: 700;
+  min-width: 16px;
+}
+.cp-check-row--ok .cp-check-icon      { color: var(--bright-accent-success); }
+.cp-check-row--missing .cp-check-icon { color: var(--bright-text-subtle); }
+
+.cp-check-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--bright-text-primary);
+  min-width: 120px;
+}
+
+.cp-check-detail {
+  font-size: 11px;
+  color: var(--bright-text-tertiary);
+  flex: 1;
+}
+.cp-check-row--ok .cp-check-detail { color: var(--bright-accent-primary); }
+
+/* ── Create button ───────────────────────────────────────── */
+.cp-create-btn {
+  width: 100%;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s, border-color 0.15s, color 0.15s, opacity 0.15s, box-shadow 0.15s;
+  margin-bottom: 20px;
+  border: 1px solid var(--bright-border-light);
+  background: var(--bright-bg-secondary);
+  color: var(--bright-text-tertiary);
+}
+.cp-create-btn--ready {
+  background: linear-gradient(135deg, var(--bright-accent-primary), var(--bright-accent-secondary));
+  border-color: var(--bright-accent-primary);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+}
+.cp-create-btn--ready:hover {
+  box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
+}
+.cp-create-btn:disabled {
+  cursor: default;
+  opacity: 0.5;
+}
+.cp-create-btn--republish.cp-create-btn--ready {
+  background: linear-gradient(135deg, var(--bright-accent-success), rgba(16, 185, 129, 0.8));
+  border-color: var(--bright-accent-success);
+  color: #ffffff;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
+}
+.cp-create-btn--republish.cp-create-btn--ready:hover {
+  box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+  transform: translateY(-1px);
+}
+
+/* ── Last published badge ───────────────────────────────── */
+.cp-last-published {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 12px;
+  color: var(--bright-accent-success);
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  border-radius: 7px;
+  padding: 7px 12px;
+  margin-bottom: 12px;
+}
+.cp-last-published-icon {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--bright-accent-success);
+}
+
+/* ── Step list ───────────────────────────────────────────── */
+.cp-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 20px;
+  padding: 14px 16px;
+  background: var(--bright-bg-secondary);
+  border: 1px solid var(--bright-border-light);
+  border-radius: 10px;
+}
+
+.cp-step {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: background 0.12s, border-color 0.12s;
+}
+
+.cp-step--pending {
+  opacity: 0.5;
+  background: rgba(100, 120, 150, 0.06);
+  border-color: var(--bright-border-subtle);
+}
+.cp-step--active {
+  opacity: 1;
+  background: rgba(59, 130, 246, 0.12);
+  border-color: rgba(59, 130, 246, 0.3);
+}
+.cp-step--done {
+  opacity: 1;
+  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(16, 185, 129, 0.2);
+}
+
+.cp-step-icon {
+  font-size: 13px;
+  font-weight: 700;
+  min-width: 18px;
+  text-align: center;
+}
+.cp-step--pending .cp-step-icon { color: var(--bright-text-subtle); }
+.cp-step--done    .cp-step-icon { color: var(--bright-accent-success); }
+.cp-step--active  .cp-step-icon {
+  color: var(--bright-accent-primary);
+  display: inline-block;
+  animation: cp-spin 1s linear infinite;
+}
+
+@keyframes cp-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+.cp-step-label {
+  font-size: 12px;
+  color: var(--bright-text-primary);
+}
+.cp-step--active .cp-step-label { color: var(--bright-accent-primary); font-weight: 600; }
+.cp-step--done   .cp-step-label { color: var(--bright-accent-success); }
+
+/* ── Success box ─────────────────────────────────────────── */
+.cp-success {
+  padding: 18px 20px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.cp-success-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--bright-accent-primary);
+  margin-bottom: 14px;
+}
+
+.cp-success-links {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cp-link-btn {
+  padding: 9px 14px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 8px;
+  color: var(--bright-accent-primary);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.13s, border-color 0.13s, color 0.13s;
+}
+.cp-link-btn:hover {
+  background: rgba(59, 130, 246, 0.15);
+  border-color: var(--bright-accent-primary);
+  color: var(--bright-text-primary);
+}
+
+/* ── Error box ───────────────────────────────────────────── */
+.cp-error {
+  padding: 14px 16px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
+  margin-bottom: 16px;
+}
+
+.cp-error-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--bright-accent-error);
+  margin-bottom: 6px;
+}
+
+.cp-error-msg {
+  font-size: 11px;
+  font-family: 'SF Mono', 'Menlo', monospace;
+  color: var(--bright-accent-error);
+  margin-bottom: 10px;
+  word-break: break-all;
+  line-height: 1.5;
+}
+
+.cp-error-auth-note {
+  font-size: 11px;
+  color: var(--bright-accent-primary);
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 6px;
+  padding: 8px 10px;
+  margin-bottom: 10px;
+  line-height: 1.45;
+}
+
+.cp-error-retry-btn {
+  background: var(--bright-bg-secondary);
+  border: 1px solid var(--bright-border-light);
+  color: var(--bright-text-tertiary);
+  font-size: 11px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.13s, color 0.13s;
+}
+.cp-error-retry-btn:hover {
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--bright-accent-primary);
+}

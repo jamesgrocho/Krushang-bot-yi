@@ -1,0 +1,117 @@
+.god-mode-bar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 32px;
+}
+
+/* GIF behind, button centered on top */
+.god-mode-stack {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.god-mode-gif-wrapper {
+  position: relative;
+  display: inline-block;
+  padding: 4px;
+  border-radius: 18px;
+  background: linear-gradient(
+    var(--gif-angle, 0deg),
+    #3b82f6,
+    #8b5cf6,
+    #ec4899,
+    #f59e0b,
+    #10b981,
+    #3b82f6
+  );
+  animation: gif-spin 3s linear infinite;
+}
+
+@property --gif-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes gif-spin {
+  to { --gif-angle: 360deg; }
+}
+
+.god-mode-gif {
+  display: block;
+  height: auto;
+  width: 375px;
+  border-radius: 14px;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Spinning gradient ring */
+.god-mode-ring {
+  position: absolute;
+  bottom: 20px;
+  padding: 3px;
+  border-radius: 50px;
+  background: linear-gradient(
+    var(--gm-angle, 0deg),
+    #3b82f6,
+    #8b5cf6,
+    #ec4899,
+    #f59e0b,
+    #10b981,
+    #3b82f6
+  );
+  animation: gm-spin 3s linear infinite;
+}
+
+@property --gm-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+@keyframes gm-spin {
+  to { --gm-angle: 360deg; }
+}
+
+.god-mode-button {
+  position: relative;
+  padding: 12px 40px;
+  background: #ffffff;
+  color: #7c3aed;
+  border: none;
+  border-radius: 48px;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  white-space: nowrap;
+  letter-spacing: 0.04em;
+  transition: transform 0.2s, filter 0.2s;
+}
+
+.god-mode-button:hover:not(:disabled) {
+  transform: scale(1.04);
+  filter: brightness(0.96);
+}
+
+.god-mode-button:active:not(:disabled) {
+  transform: scale(0.97);
+}
+
+.god-mode-button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+
+.god-mode-button--running {
+  animation: gm-pulse 0.7s ease-in-out infinite alternate;
+}
+
+@keyframes gm-pulse {
+  from { opacity: 0.6; transform: scale(1); }
+  to   { opacity: 1;   transform: scale(1.02); }
+}

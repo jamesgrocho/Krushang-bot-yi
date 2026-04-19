@@ -1,0 +1,181 @@
+/* Phase lock notice */
+.phase-lock-notice {
+  font-size: 13px;
+  color: var(--bright-text-tertiary);
+  padding: 10px 0 4px;
+  font-style: italic;
+}
+
+.phase-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Form Elements */
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-label {
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--bright-text-tertiary);
+}
+
+.form-input {
+  padding: 10px 13px;
+  background: var(--bright-bg-input);
+  border: 1px solid var(--bright-border-light);
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: inherit;
+  color: var(--bright-text-primary);
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s;
+}
+
+.form-input::placeholder {
+  color: var(--bright-text-subtle);
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--bright-accent-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+  background: #ffffff;
+}
+
+.form-input:disabled {
+  background: rgba(100, 120, 150, 0.06);
+  color: var(--bright-text-subtle);
+  border-color: var(--bright-border-subtle);
+  cursor: not-allowed;
+}
+
+.form-help {
+  font-size: 12px;
+  color: var(--bright-text-tertiary);
+  margin-top: 4px;
+}
+
+/* Buttons */
+.button-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.button {
+  padding: 10px 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.button-primary {
+  background: linear-gradient(135deg, var(--bright-accent-primary), var(--bright-accent-secondary));
+  color: #ffffff;
+  border: 1px solid var(--bright-accent-primary);
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.button-primary:hover:not(:disabled) {
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
+}
+
+.button-primary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.button-secondary {
+  background: var(--bright-bg-secondary);
+  color: var(--bright-text-primary);
+  border: 1px solid var(--bright-border-light);
+}
+
+.button-secondary:hover:not(:disabled) {
+  background: rgba(59, 130, 246, 0.08);
+  border-color: var(--bright-accent-primary);
+  color: var(--bright-accent-primary);
+}
+
+.button-secondary:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+/* Validation Messages */
+.validation-error {
+  padding: 10px 14px;
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.3);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--bright-accent-error);
+}
+
+.validation-success {
+  padding: 10px 14px;
+  background: rgba(59, 130, 246, 0.08);
+  border: 1px solid rgba(59, 130, 246, 0.25);
+  border-radius: 8px;
+  font-size: 13px;
+  color: var(--bright-accent-primary);
+}
+
+/* ── Shared AI generate button (used in Topic, Script, Title sections) ── */
+.generate-script-btn {
+  flex: 0 0 auto;
+  padding: 7px 14px;
+  background: linear-gradient(135deg, var(--bright-accent-primary) 0%, var(--bright-accent-secondary) 100%);
+  border: 1px solid var(--bright-accent-primary);
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  transition: background 0.2s, border-color 0.2s, opacity 0.2s, box-shadow 0.2s, transform 0.2s;
+  white-space: nowrap;
+  box-shadow: 0 2px 8px rgba(59, 130, 246, 0.2);
+}
+
+.generate-script-btn:hover:not(:disabled) {
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+  transform: translateY(-1px);
+}
+
+.generate-script-btn.generating,
+.generate-script-btn:disabled {
+  opacity: 0.5;
+  cursor: default;
+  transform: none;
+}
+
+/* Topic Info Box */
+.topic-info {
+  padding: 12px 14px;
+  background: var(--bright-bg-secondary);
+  border: 1px solid var(--bright-border-light);
+  border-radius: 8px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--bright-text-primary);
+}

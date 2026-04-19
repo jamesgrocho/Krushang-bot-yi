@@ -1,0 +1,263 @@
+/* ─── Minimal Bright Design System ──────────────────────────────── */
+/* Modern light aesthetic inspired by DataPulse — clean, professional, accessible */
+
+/* Light mode color palette (professional design system) */
+:root {
+  /* Primary backgrounds — clean whites and light grays */
+  --bright-bg-primary: #ffffff;
+  --bright-bg-secondary: #f8f9fa;
+  --bright-bg-tertiary: #f1f3f5;
+  --bright-bg-input: #ffffff;
+
+  /* Text colors — high contrast for readability */
+  --bright-text-primary: #1a1f35;
+  --bright-text-secondary: #374151;
+  --bright-text-tertiary: #6b7280;
+  --bright-text-subtle: #9ca3af;
+
+  /* Gradient accents — modern blue to purple */
+  --bright-accent-primary: #3b82f6;       /* Bright blue */
+  --bright-accent-secondary: #6366f1;     /* Indigo */
+  --bright-accent-tertiary: #8b5cf6;      /* Purple */
+  --bright-accent-success: #10b981;       /* Emerald */
+  --bright-accent-warning: #f59e0b;       /* Amber */
+  --bright-accent-error: #ef4444;         /* Red */
+
+  /* Interactive states */
+  --bright-border-subtle: #e5e7eb;
+  --bright-border-light: #d1d5db;
+  --bright-border-medium: #9ca3af;
+
+  /* Shadow palette — professional, minimal */
+  --bright-shadow-subtle: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --bright-shadow-light: 0 1px 3px rgba(0, 0, 0, 0.08), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --bright-shadow-medium: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
+  --bright-shadow-deep: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+}
+
+/* ─── Layout & Container Basics ────────────────────────────────── */
+body.theme-light {
+  background-color: var(--bright-bg-primary);
+  color: var(--bright-text-primary);
+}
+
+/* ─── Card Base (Light Mode) ───────────────────────────────────── */
+.bright-card {
+  background: var(--bright-bg-input);
+  border: 1px solid var(--bright-border-subtle);
+  border-radius: 10px;
+  padding: 16px;
+  box-shadow: var(--bright-shadow-light);
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bright-card:hover {
+  border-color: var(--bright-border-light);
+  box-shadow: var(--bright-shadow-medium);
+  transform: translateY(-2px);
+}
+
+/* ─── Panel/Section Base ───────────────────────────────────────── */
+.bright-panel {
+  background: var(--bright-bg-input);
+  border: 1px solid var(--bright-border-subtle);
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: var(--bright-shadow-light);
+}
+
+/* ─── Buttons ──────────────────────────────────────────────────── */
+.bright-button {
+  background: var(--bright-bg-secondary);
+  border: 1px solid var(--bright-border-light);
+  color: var(--bright-text-primary);
+  padding: 10px 18px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--bright-shadow-light);
+}
+
+.bright-button:hover:not(:disabled) {
+  background: var(--bright-bg-tertiary);
+  border-color: var(--bright-border-medium);
+  box-shadow: var(--bright-shadow-medium);
+  transform: translateY(-1px);
+}
+
+.bright-button:active:not(:disabled) {
+  transform: scale(0.98);
+}
+
+.bright-button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* ─── Button Variants ──────────────────────────────────────────── */
+.bright-button--primary {
+  background: linear-gradient(135deg, var(--bright-accent-primary) 0%, var(--bright-accent-secondary) 100%);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.3);
+}
+
+.bright-button--primary:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(59, 130, 246, 0.4);
+}
+
+.bright-button--success {
+  background: var(--bright-accent-success);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.bright-button--success:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+}
+
+.bright-button--error {
+  background: var(--bright-accent-error);
+  color: #ffffff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.bright-button--error:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+/* ─── Input Fields ─────────────────────────────────────────────── */
+.bright-input {
+  background: var(--bright-bg-input);
+  border: 1px solid var(--bright-border-light);
+  border-radius: 8px;
+  padding: 10px 13px;
+  font-size: 13px;
+  color: var(--bright-text-primary);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.bright-input::placeholder {
+  color: var(--bright-text-subtle);
+}
+
+.bright-input:focus {
+  outline: none;
+  border-color: var(--bright-accent-primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), 0 0 0 1px rgba(59, 130, 246, 0.2);
+  background: #ffffff;
+}
+
+.bright-input:disabled {
+  background: var(--bright-bg-secondary);
+  color: var(--bright-text-tertiary);
+  cursor: not-allowed;
+  border-color: var(--bright-border-subtle);
+}
+
+/* ─── Badges & Tags ────────────────────────────────────────────── */
+.bright-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--bright-accent-primary);
+}
+
+.bright-badge--success {
+  background: rgba(16, 185, 129, 0.1);
+  border-color: rgba(16, 185, 129, 0.2);
+  color: var(--bright-accent-success);
+}
+
+.bright-badge--error {
+  background: rgba(239, 68, 68, 0.1);
+  border-color: rgba(239, 68, 68, 0.2);
+  color: var(--bright-accent-error);
+}
+
+.bright-badge--info {
+  background: rgba(99, 102, 241, 0.1);
+  border-color: rgba(99, 102, 241, 0.2);
+  color: var(--bright-accent-secondary);
+}
+
+/* ─── Divider ──────────────────────────────────────────────────── */
+.bright-divider {
+  height: 1px;
+  background: linear-gradient(90deg,
+    transparent,
+    var(--bright-border-light),
+    transparent);
+  margin: 12px 0;
+}
+
+/* ─── Validation Messages ──────────────────────────────────────── */
+.bright-error-message {
+  padding: 10px 14px;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  border-radius: 8px;
+  font-size: 13px;
+  color: #dc2626;
+  line-height: 1.5;
+}
+
+.bright-success-message {
+  padding: 10px 14px;
+  background: rgba(110, 231, 183, 0.1);
+  border: 1px solid rgba(110, 231, 183, 0.3);
+  border-radius: 8px;
+  font-size: 13px;
+  color: #059669;
+  line-height: 1.5;
+}
+
+/* ─── Animations ───────────────────────────────────────────────── */
+@keyframes bright-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.bright-animate-in {
+  animation: bright-fade-in 0.3s ease;
+}
+
+/* ─── Responsive Adjustments ──────────────────────────────────── */
+@media (prefers-reduced-motion: true) {
+  .bright-button,
+  .bright-input,
+  .bright-card,
+  .bright-panel {
+    transition: none;
+  }
+  .bright-animate-in {
+    animation: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .bright-card {
+    padding: 12px;
+  }
+  .bright-panel {
+    padding: 16px;
+  }
+}

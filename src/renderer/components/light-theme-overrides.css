@@ -1,0 +1,339 @@
+/* ─── Light Theme Overrides for All Components ────────────────── */
+/* Modern light aesthetic matching DataPulse design system */
+
+/* ─── Phase Section ────────────────────────────────────────────── */
+.phase-wrap {
+  background: var(--bright-bg-input);
+  border: 1px solid var(--bright-border-subtle);
+  box-shadow: var(--bright-shadow-light);
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border-radius: 10px;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.phase-wrap:not(.phase-locked):hover {
+  border-color: var(--bright-border-light);
+  box-shadow: var(--bright-shadow-medium);
+  transform: translateY(-2px);
+}
+
+.phase-wrap::before {
+  background: linear-gradient(90deg,
+    transparent,
+    var(--bright-accent-primary) 20%,
+    var(--bright-accent-primary) 50%,
+    var(--bright-accent-primary) 80%,
+    transparent);
+  opacity: 0.15;
+}
+
+.phase-header-bar {
+  background: linear-gradient(90deg, #3b82f6 0%, #7c3aed 100%);
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  transition: filter 0.2s ease;
+}
+
+.phase-header-bar.is-collapsed {
+  border-radius: 10px;
+}
+
+.phase-header-bar:hover {
+  background: linear-gradient(90deg, #3b82f6 0%, #7c3aed 100%);
+  filter: brightness(1.08);
+}
+
+.phase-title-text {
+  color: #ffffff;
+  text-shadow: none;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.preview-pill {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: rgba(255, 255, 255, 0.85);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 500;
+}
+
+.preview-pill.done {
+  background: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+.preview-pill.pending {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.phase-chevron {
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.phase-header-bar:hover .phase-chevron {
+  color: #ffffff;
+}
+
+/* ─── Form Elements (sections.css) ─────────────────────────────── */
+.form-label {
+  color: var(--bright-text-secondary);
+}
+
+.form-input {
+  background: var(--bright-bg-input);
+  border: 1px solid var(--bright-border-light);
+  color: var(--bright-text-primary);
+}
+
+.form-input::placeholder {
+  color: var(--bright-text-subtle);
+}
+
+.form-input:focus {
+  border-color: var(--bright-accent-primary);
+  box-shadow: 0 0 0 3px rgba(199, 210, 232, 0.1);
+  background: #ffffff;
+}
+
+.form-input:disabled {
+  background: var(--bright-bg-secondary);
+  color: var(--bright-text-tertiary);
+}
+
+.button-primary {
+  background: var(--bright-accent-primary);
+  color: #ffffff;
+  border: 1px solid var(--bright-accent-primary);
+  box-shadow: var(--bright-shadow-subtle);
+}
+
+.button-primary:hover:not(:disabled) {
+  background: #b8c5e0;
+  box-shadow: var(--bright-shadow-light);
+  border-color: #b8c5e0;
+}
+
+.button-secondary {
+  background: var(--bright-bg-secondary);
+  color: var(--bright-text-primary);
+  border: 1px solid var(--bright-border-light);
+  backdrop-filter: none;
+}
+
+.button-secondary:hover:not(:disabled) {
+  background: var(--bright-bg-tertiary);
+  border-color: var(--bright-border-light);
+  color: var(--bright-text-primary);
+}
+
+.validation-error {
+  padding: 10px 14px;
+  background: rgba(248, 113, 113, 0.1);
+  border: 1px solid rgba(248, 113, 113, 0.3);
+  color: #dc2626;
+}
+
+.validation-success {
+  padding: 10px 14px;
+  background: rgba(110, 231, 183, 0.1);
+  border: 1px solid rgba(110, 231, 183, 0.3);
+  color: #059669;
+}
+
+.topic-info {
+  background: var(--bright-bg-secondary);
+  border: 1px solid var(--bright-border-subtle);
+  color: var(--bright-text-secondary);
+}
+
+/* ─── TopNavBar ────────────────────────────────────────────────── */
+.topnav {
+  background: rgba(249, 250, 251, 0.95);
+  border-bottom: 1px solid var(--bright-border-subtle);
+  box-shadow: var(--bright-shadow-subtle);
+  backdrop-filter: blur(8px);
+}
+
+.topnav::before {
+  background: linear-gradient(90deg,
+    transparent,
+    var(--bright-accent-primary) 20%,
+    var(--bright-accent-primary) 50%,
+    var(--bright-accent-primary) 80%,
+    transparent);
+  opacity: 0.2;
+}
+
+.topnav::after {
+  background: linear-gradient(180deg,
+    rgba(199, 210, 232, 0.05),
+    transparent);
+}
+
+.topnav-brand-krushang {
+  background: linear-gradient(160deg, var(--bright-text-primary) 0%, var(--bright-accent-primary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 4px rgba(199, 210, 232, 0.2));
+}
+
+.topnav-brand-bot {
+  background: linear-gradient(160deg, var(--bright-accent-primary) 0%, var(--bright-accent-tertiary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 4px rgba(199, 210, 232, 0.15));
+}
+
+.topnav-button {
+  background: var(--bright-bg-secondary);
+  border: 1px solid var(--bright-border-light);
+  color: var(--bright-text-secondary);
+  backdrop-filter: blur(4px);
+}
+
+.topnav-button:hover {
+  background: var(--bright-bg-tertiary);
+  border-color: var(--bright-border-medium);
+  color: var(--bright-text-primary);
+}
+
+.topnav-button--new {
+  background: var(--bright-accent-primary);
+  border-color: var(--bright-accent-primary);
+  color: #ffffff;
+}
+
+.topnav-button--new:hover {
+  opacity: 0.85;
+  box-shadow: var(--bright-shadow-light);
+}
+
+.topnav-projects-dropdown {
+  background: rgba(249, 250, 251, 0.98);
+  backdrop-filter: blur(8px);
+  border: 1px solid var(--bright-border-subtle);
+  box-shadow: var(--bright-shadow-deep);
+}
+
+.topnav-projects-item {
+  border-bottom: 1px solid var(--bright-border-subtle);
+}
+
+.topnav-projects-item:hover {
+  background: var(--bright-bg-secondary);
+}
+
+.topnav-projects-item-title {
+  color: var(--bright-text-primary);
+}
+
+.topnav-projects-item-time {
+  color: var(--bright-text-tertiary);
+}
+
+.project-title-bar {
+  background: var(--bright-bg-secondary);
+  border-bottom: 1px solid var(--bright-border-subtle);
+  box-shadow: var(--bright-shadow-subtle);
+}
+
+.project-title-label {
+  color: var(--bright-text-tertiary);
+}
+
+.project-title-name {
+  background: linear-gradient(135deg, var(--bright-accent-primary) 0%, var(--bright-accent-tertiary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 4px rgba(199, 210, 232, 0.2));
+}
+
+.project-autosave-badge {
+  color: #059669;
+  background: rgba(110, 231, 183, 0.1);
+  border: 1px solid rgba(110, 231, 183, 0.3);
+}
+
+/* ─── TabBar ────────────────────────────────────────────────────── */
+.tab-bar {
+  background: var(--bright-bg-primary);
+  border-bottom: 1px solid var(--bright-border-subtle);
+}
+
+.tab-item {
+  background: var(--bright-bg-secondary);
+  border: 1px solid var(--bright-border-light);
+  color: var(--bright-text-tertiary);
+}
+
+.tab-item:hover {
+  background: var(--bright-bg-tertiary);
+  border-color: var(--bright-border-light);
+}
+
+.tab-item--active {
+  background: var(--bright-accent-primary);
+  border-color: var(--bright-accent-primary);
+  color: #ffffff;
+}
+
+.tab-label {
+  color: var(--bright-text-tertiary);
+}
+
+.tab-item--active .tab-label {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ─── SideNav ──────────────────────────────────────────────────── */
+.sidenav {
+  background: var(--bright-bg-secondary);
+  border-right: 1px solid var(--bright-border-subtle);
+  backdrop-filter: none;
+}
+
+.sidenav-item {
+  color: var(--bright-text-tertiary);
+}
+
+.sidenav-item:hover {
+  background: var(--bright-bg-tertiary);
+  border-left-color: var(--bright-accent-primary);
+  color: var(--bright-text-primary);
+}
+
+.sidenav-item.active {
+  color: var(--bright-accent-primary);
+  background: rgba(199, 210, 232, 0.1);
+  border-left-color: var(--bright-accent-primary);
+  text-shadow: none;
+}
+
+.sidenav-dot {
+  background: rgba(199, 210, 232, 0.3);
+}
+
+.sidenav-item:hover .sidenav-dot {
+  background: rgba(199, 210, 232, 0.6);
+}
+
+.sidenav-item.active .sidenav-dot {
+  background: var(--bright-accent-primary);
+  box-shadow: 0 0 6px rgba(199, 210, 232, 0.4);
+}
+
+/* ─── Main Content Background ──────────────────────────────────── */
+.main-content {
+  background: var(--bright-bg-primary);
+}
